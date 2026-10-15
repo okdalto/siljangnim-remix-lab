@@ -1,0 +1,91 @@
+{
+  "schedule": [
+    {
+      "time": 0.5,
+      "mass": 15,
+      "x": 400,
+      "y": 630,
+      "size": [
+        100,
+        62
+      ]
+    },
+    {
+      "time": 2.0,
+      "mass": 30,
+      "x": 406,
+      "y": 565,
+      "size": [
+        100,
+        62
+      ]
+    },
+    {
+      "time": 3.5,
+      "mass": 45,
+      "x": 412,
+      "y": 500,
+      "size": [
+        100,
+        62
+      ]
+    },
+    {
+      "time": 5.0,
+      "mass": 60,
+      "x": 418,
+      "y": 435,
+      "size": [
+        100,
+        62
+      ]
+    },
+    {
+      "time": 6.5,
+      "mass": 75,
+      "x": 424,
+      "y": 370,
+      "size": [
+        100,
+        62
+      ]
+    },
+    {
+      "time": 8.0,
+      "mass": 90,
+      "x": 430,
+      "y": 305,
+      "size": [
+        100,
+        62
+      ]
+    }
+  ],
+  "duration": 20,
+  "fps": 30,
+  "physics_hz": 120,
+  "evaluations": 18,
+  "baseline": {
+    "spread": 40,
+    "bias": 0,
+    "chair_mass": 13.904,
+    "tilt_degrees": 74.9277888585506,
+    "stable": false,
+    "first_tip": {
+      "seconds": 4.125,
+      "box_count": 3
+    },
+    "retained": 0
+  },
+  "winner": {
+    "spread": 70,
+    "bias": 25,
+    "chair_mass": 13.904,
+    "tilt_degrees": 0.008678812060490166,
+    "stable": true,
+    "first_tip": null,
+    "retained": 6
+  },
+  "total_load_mass": 315,
+  "limitations": "Rigid 2D contact only; no bending, fracture, 3D stability or real-world safety claim."
+}

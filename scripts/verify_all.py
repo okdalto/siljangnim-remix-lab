@@ -4,10 +4,10 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 JOBS={
 '01-doodle-walker':[['search.py'],['render_clean.py']],
-'02-chair-search':[['run.py'],['clean_results.py']],
+'02-chair-search':[['run.py'],['clean_results.py'],['stack_loads.py']],
 '03-city-pinball':[['build.py']],
 '04-domino-amplifier':[['search.py'],['render.py']],
-'05-voice-coaster':[['run.py'],['render.py']],
+'05-voice-coaster':[['run.py'],['render.py'],['launch_experiment.py','--render']],
 '06-maze-growth':[['build.py'],['render_exit.py']],
 '07-object-tetris-photo':[['make.py']],
 '08-bridge-repair':[['run.py'],['clean_results.py']],

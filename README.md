@@ -22,10 +22,10 @@ python -m pip install -r requirements.txt
 | 번호 | 프로젝트 | 바꿔 볼 것 |
 | --- | --- | --- |
 | 01 | [낙서 × 관절](projects/01-doodle-walker) | 모터 설정과 이동 거리 목표 |
-| 02 | [흔들리는 의자](projects/02-chair-search) | 발 위치와 하중 |
+| 02 | [흔들리는 의자](projects/02-chair-search) | 발 위치와 점점 무거워지는 상자 |
 | 03 | [도시 × 핀볼](projects/03-city-pinball) | 건물 경계와 반발 |
 | 04 | [작은 도미노 × 거대한 도미노](projects/04-domino-amplifier) | 크기 비율과 간격 |
-| 05 | [목소리 × 롤러코스터](projects/05-voice-coaster) | 입력 소리의 pitch와 레일 굴곡 |
+| 05 | [목소리 × 롤러코스터](projects/05-voice-coaster) | 목소리의 끝음과 발사 비거리 |
 | 06 | [미로 × 성장](projects/06-maze-growth) | 미로 seed와 가지 탐색 |
 | 07 | [책상 물건 × 테트리스](projects/07-object-tetris-photo) | 물건 순서와 배치 |
 | 08 | [다리 × 보강](projects/08-bridge-repair) | 부재, 하중, 보강 위치 |
@@ -33,13 +33,13 @@ python -m pip install -r requirements.txt
 
 각 폴더에서 README의 명령을 실행하면 결과 영상/수치가 생성됩니다. 물리 실험은 단순화된 모델이며, 실제 구조물 설계나 현실의 롤러코스터 안전성을 검증하지 않습니다. 플랫폼·라이브러리 차이로 부동소수점 결과가 조금 달라질 수 있습니다.
 
-05는 현재 공개 영상의 **접촉 이탈과 굴곡 완화 비교**입니다. ‘소리를 바꿔 비행 거리를 최적화하기’는 다음 실험 아이디어이며 현재 구현됐다고 표시하지 않습니다.
+02는 동일한 상자 여섯 개를 점점 무겁게 쌓으며 다리 설계 18개를 비교합니다. 05는 목소리의 pitch를 실제로 변형하고 다시 측정해, 레일 끝에서 날아가는 카트의 비거리를 비교합니다. 공개 기본 입력은 직접 합성한 모음이며 영상의 George 음성은 포함하지 않습니다.
 
 ## English
 
 Download and remix the actual experiments featured in the Siljangnim Shorts series. Each numbered folder includes source code, inputs and run instructions. These are executable experiments, not narrated-video templates. Python 3.11/3.12 and FFmpeg are required; no API keys or paid services are needed. Start with the installation commands above, then follow the README in your chosen project.
 
-The models are deliberately simplified. See each project's documented assumptions and any differences between bundled sample inputs and the published video. The new sound-to-jump-distance optimization idea is not yet implemented in episode 05.
+The models are deliberately simplified. See each project's documented assumptions and any differences between bundled sample inputs and the published video. Episode 05 now edits and remeasures audio to compare launch distances. Its bundled synthetic input differs from the local George sample used in the video.
 
 ## License and credits
 
@@ -54,4 +54,4 @@ python scripts/check_environment.py
 python scripts/verify_all.py
 ```
 
-The second command reruns all nine experiments, renders their outputs and fully decodes every generated MP4. It can take several minutes and writes `verification-report.json`. The recorded report was produced from a fresh HTTPS clone on 2026-10-15, using the pinned requirements on macOS/Python3.12. The music-type browser viewer was also opened, played and visually checked. This is not a claim of testing every OS.
+The second command reruns all nine experiments, renders their outputs and fully decodes every generated MP4. It can take several minutes and writes `verification-report.json`. The initial nine-project check used a fresh HTTPS clone on 2026-10-15. The current report also reruns the revised chair load and audio launch experiments locally using the pinned requirements on macOS/Python3.12. The music-type browser viewer was also opened, played and visually checked. This is not a claim of testing every OS.

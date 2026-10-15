@@ -20,9 +20,12 @@
       ],
       [
         "clean_results.py"
+      ],
+      [
+        "stack_loads.py"
       ]
     ],
-    "decoded_videos": 3,
+    "decoded_videos": 5,
     "status": "pass"
   },
   {
@@ -56,9 +59,13 @@
       ],
       [
         "render.py"
+      ],
+      [
+        "launch_experiment.py",
+        "--render"
       ]
     ],
-    "decoded_videos": 2,
+    "decoded_videos": 4,
     "status": "pass"
   },
   {

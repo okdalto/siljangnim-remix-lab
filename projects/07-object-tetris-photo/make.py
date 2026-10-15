@@ -67,7 +67,7 @@ def portable_font(size):
  except OSError: return ImageFont.load_default(size=size)
 font=portable_font
 proc=subprocess.Popen(['ffmpeg','-y','-v','error','-f','rawvideo','-pix_fmt','rgb24','-s','720x1280','-r','30','-i','-','-an','-c:v','libx264','-preset','fast','-crf','18','-pix_fmt','yuv420p','-movflags','+faststart',str(p/'preview.mp4')],stdin=subprocess.PIPE)
-for f in range(450):
+for f in range(600):
  t=f/30;im=Image.new('RGB',(720,1280),'#151b22');d=ImageDraw.Draw(im);d.text((360,135),'DESK OBJECTS.',font=font(47),fill='white',anchor='mt');d.text((360,195),'TETRIS RULES.',font=font(47),fill='white',anchor='mt')
  if t<1.5:
   show=source.copy();show.thumbnail((600,720));im.paste(show,((720-show.width)//2,340+(720-show.height)//2),show)
@@ -83,4 +83,4 @@ for f in range(450):
   clears=sum(e0['cleared'] for e0 in events[:ix+(1 if settled else 0)]);d.text((360,1150),f'{ix+1} objects · {clears} rows cleared',font=font(33),fill='white',anchor='mt')
  proc.stdin.write(im.tobytes())
 proc.stdin.close();assert proc.wait()==0
-(p/'provenance.json').write_text(json.dumps({'input':'assets.png; generated photo-style sprite sheet, not a real camera photograph','input_sha256':hashlib.sha256((p/'assets.png').read_bytes()).hexdigest(),'segmentation':'original alpha first; actual HSV white-background key fallback + connected components +3px closing; internal holes retained','texture':'actual input RGBA pixels rotate and fall with pieces; per-cell RGBA tiles remain on board and shift after line clears','packing':'actual exhaustive rotation/x search, gravity drop, occupancy collision, complete-row deletion','source_code':'make.py','output':'720x1280,30fps,15s'},indent=2))
+(p/'provenance.json').write_text(json.dumps({'input':'assets.png; generated photo-style sprite sheet, not a real camera photograph','input_sha256':hashlib.sha256((p/'assets.png').read_bytes()).hexdigest(),'segmentation':'original alpha first; actual HSV white-background key fallback + connected components +3px closing; internal holes retained','texture':'actual input RGBA pixels rotate and fall with pieces; per-cell RGBA tiles remain on board and shift after line clears','packing':'actual exhaustive rotation/x search, gravity drop, occupancy collision, complete-row deletion','source_code':'make.py','output':'720x1280,30fps,20s; full 12-object run followed by final board hold'},indent=2))
