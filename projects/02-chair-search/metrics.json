@@ -1,0 +1,21 @@
+{
+  "initial": {
+    "spread": 12,
+    "bias": 0,
+    "score": 192.3386887880458,
+    "tilt_degrees": 68.465425988383,
+    "load_y": 897.1000010762269,
+    "load2_y": 907.0598892251138,
+    "stable": false
+  },
+  "best": {
+    "spread": 70,
+    "bias": 0,
+    "score": 0.0700684910596214,
+    "tilt_degrees": 3.924248650684473e-05,
+    "load_y": 650.051995321247,
+    "load2_y": 660.1076653415706,
+    "stable": true
+  },
+  "evaluations": 21
+}

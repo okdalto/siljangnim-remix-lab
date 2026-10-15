@@ -1,0 +1,7 @@
+{
+  "project": "05-voice-coaster",
+  "published_short_reproduction": true,
+  "scope": "Experiment source and input data; no promotional TTS, model weights, browser profiles or production credentials",
+  "asset_licenses": "Repository GPL-3.0 for original/derived project assets; dependency licenses remain upstream",
+  "readme": "README.md"
+}

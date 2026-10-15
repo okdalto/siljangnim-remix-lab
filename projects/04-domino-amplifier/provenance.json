@@ -1,0 +1,24 @@
+{
+  "origin": "Siljangnim Shorts actual simulation sources",
+  "episode": "04-domino-amplifier",
+  "original_source_sha256": {
+    "search.py": "3d80847af85159e24aeae48a19b0314cf0c59c22a97518cce17d79a3e8488559",
+    "render.py": "565e33333c3be779976050c090ee7102be40528aed0d6e38ed4ab1c225d11ffe",
+    "states.json": "727835e02670ea4fad080e528365d2d79501aec2c06d5512645fab335ff6f677",
+    "metrics.json": "a239f68f4d418b81d213db56ca398eb6d1526bd150dbc89ffa23c7631bdbcf19"
+  },
+  "packaging_changes": [
+    "Relative local input paths",
+    "Pillow bundled font replaces platform-specific font where needed"
+  ],
+  "includes": [
+    "Authored simulation and renderer source",
+    "Recorded experiment data and metrics"
+  ],
+  "excludes": [
+    "Narration",
+    "Brand assets",
+    "Image generation assets",
+    "Credentials"
+  ]
+}

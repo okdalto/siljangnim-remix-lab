@@ -1,0 +1,22 @@
+{
+  "feedback": {
+    "first_failed_bar": {
+      "time": 0.9916666666666667,
+      "bar": 0,
+      "nodes": [
+        0,
+        1
+      ],
+      "force": 35227.41235815787
+    },
+    "most_deflected_deck_node_before_failure": 4
+  },
+  "selected_repair": 1,
+  "added_members": 2,
+  "initial_broken": 9,
+  "repaired_broken": 0,
+  "initial_deflection": 400.0,
+  "repaired_deflection": 7.248360635142831,
+  "same_downward_load": 30000,
+  "capacity_unchanged": 35000
+}

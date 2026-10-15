@@ -1,0 +1,19 @@
+{
+  "file": "assets.png",
+  "sha256": "930c05fbc32151e67c77345699cac58d38aeff0b0be19f6f74434f561a42bc84",
+  "type": "Generated photo-style sprite sheet; original RGBA preserved",
+  "layout": [
+    2,
+    3
+  ],
+  "objects": [
+    "pencil",
+    "mug",
+    "comb",
+    "key",
+    "eraser",
+    "scissors"
+  ],
+  "service_required_to_run": false,
+  "license_note": "Generated input asset; not third-party open-source code. No additional license inferred from generation metadata."
+}

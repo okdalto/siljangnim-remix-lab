@@ -1,0 +1,24 @@
+{
+  "origin": "Siljangnim Shorts actual simulation sources",
+  "episode": "08-bridge-repair",
+  "original_source_sha256": {
+    "run.py": "2f1cf5c9ca1a39f0eed6b89cc8ae9a97015d69362b88d42af369d9ad0322c357",
+    "simulations.json": "27cfaba007caeaa7651319bd9847c9ae9b187cb321a697a41b33417fc40b7b9a",
+    "metrics.json": "fc5ec6f00b7080c4ea41af9023cecdc7ecc662b918d279e47cc4f41678c9872a",
+    "clean_results.py": "8d47f51eeadee60afcbb0aa3ecac0b12929cb2cc431d1af9d573d04a739c84a7"
+  },
+  "packaging_changes": [
+    "Relative local input paths",
+    "Pillow bundled font replaces platform-specific font where needed"
+  ],
+  "includes": [
+    "Authored simulation and renderer source",
+    "Recorded experiment data and metrics"
+  ],
+  "excludes": [
+    "Narration",
+    "Brand assets",
+    "Image generation assets",
+    "Credentials"
+  ]
+}

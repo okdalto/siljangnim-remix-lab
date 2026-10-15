@@ -1,0 +1,10 @@
+__pycache__/
+.venv/
+*.mp4
+contact-sheet.jpg
+qa.json
+simulation.json
+provenance.json
+metrics.json
+object-*.png
+mask-*.png

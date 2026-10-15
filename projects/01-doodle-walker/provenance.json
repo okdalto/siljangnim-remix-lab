@@ -1,0 +1,24 @@
+{
+  "origin": "Siljangnim Shorts actual simulation sources",
+  "episode": "01-doodle-walker",
+  "original_source_sha256": {
+    "search.py": "e57d3d1d56890df9fc5ce500e96466aa4e0ad90f9f9344db355b176fdc0ac05d",
+    "frames.json": "b47b9a5be3830d4a6575b8d9ccbc008a48f59b3b56dfd9678053c970f96b3a47",
+    "metrics.json": "17d917cb4dc12fee7eefbb8ed37d9341f18a76f73629b79dcb81be4ba7d550a0",
+    "render_clean.py": "72e8174b1b91c839579390c557f5c91522d22418d5f9351a9d0a128dfd040623"
+  },
+  "packaging_changes": [
+    "Relative local input paths",
+    "Pillow bundled font replaces platform-specific font where needed"
+  ],
+  "includes": [
+    "Authored simulation and renderer source",
+    "Recorded experiment data and metrics"
+  ],
+  "excludes": [
+    "Narration",
+    "Brand assets",
+    "Image generation assets",
+    "Credentials"
+  ]
+}

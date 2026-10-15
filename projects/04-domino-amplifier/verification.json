@@ -1,0 +1,23 @@
+{
+  "simulation_rerun": true,
+  "metric_assertions_passed": true,
+  "videos": [
+    {
+      "file": "after-clean.mp4",
+      "duration": 7.0,
+      "full_decode": true
+    },
+    {
+      "file": "before-clean.mp4",
+      "duration": 4.0,
+      "full_decode": true
+    },
+    {
+      "file": "preview.mp4",
+      "duration": 11.0,
+      "full_decode": true
+    }
+  ],
+  "runtime": "Python3.12;Pymunk7.3.1;NumPy1.26.4;Pillow12.3.0;FFmpeg",
+  "scope": "Numerical replay and full decode; not claimed independent visual review"
+}

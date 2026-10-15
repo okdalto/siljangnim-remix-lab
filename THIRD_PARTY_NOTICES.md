@@ -1,0 +1,23 @@
+# Third-party software and inputs
+
+The project-authored Python/JavaScript code is GPL-3.0-or-later (root LICENSE). Libraries are installed separately, not relicensed by this repository:
+
+- Pymunk — https://github.com/viblo/pymunk — MIT.
+- NumPy — https://github.com/numpy/numpy — BSD-3-Clause.
+- SciPy — https://github.com/scipy/scipy — BSD-3-Clause.
+- librosa — https://github.com/librosa/librosa — ISC.
+- SoundFile — https://github.com/bastibe/python-soundfile — BSD-3-Clause; libsndfile has separate LGPL terms.
+- Pillow — https://github.com/python-pillow/Pillow — HPND/PIL license; bundled font resources retain their notices.
+- OpenCV — https://github.com/opencv/opencv — Apache-2.0; opencv-python package notices apply to its distribution.
+- Three.js — https://github.com/mrdoob/three.js — MIT. Episode09's browser viewer loads its pinned upstream modules. It requires network access for these modules.
+- FFmpeg/ffprobe — https://ffmpeg.org — external prerequisite, binaries not distributed here; terms depend on the installed build.
+
+## Data and artwork
+
+Episode03 includes an OpenStreetMap-derived geometry snapshot. © OpenStreetMap contributors; ODbL1.0. See projects/03-city-pinball/README.md for the original endpoint and attribution. Map data is separate from the source code license. Do not remove its attribution.
+
+Episode07's assets.png is a generated photo-style sprite sheet, not a camera photograph. Its source hash and generation provenance are in that project's ASSET_PROVENANCE.json. No third-party product logo is intended. The code license does not assert ownership of generated visual elements; source-provider terms are not invented or replaced here.
+
+Episode05 includes numeric pitch measurements for reproduction, not commercial TTS voice recordings. Users can analyze their own audio. Episode09's input provenance and procedural music sources are documented in its folder. No George narration audio is distributed.
+
+Siljangnim: https://github.com/okdalto/siljangnim. These are the standalone experiments used to produce the Shorts, not a distribution of the entire Siljangnim application.

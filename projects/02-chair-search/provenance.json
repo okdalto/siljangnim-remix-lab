@@ -1,0 +1,24 @@
+{
+  "origin": "Siljangnim Shorts actual simulation sources",
+  "episode": "02-chair-search",
+  "original_source_sha256": {
+    "run.py": "789e4d7bfa147ef0e406366a7f4e54e80b2fe8ea3e6bcd84134fdf0e24c48f5c",
+    "search.json": "86086f80b7fa43b8cbed67d9485f439a8a6c8c9ef298f1158c350658d47cee98",
+    "metrics.json": "db89f73f13c399493adf22a83a8b5aab4355b4ee761aa4c0a0b51d13374d646f",
+    "clean_results.py": "7a13cfcd5a78366b3936e5911145f401ac95f0af068a3e89ff038e3f71d1e82c"
+  },
+  "packaging_changes": [
+    "Relative local input paths",
+    "Pillow bundled font replaces platform-specific font where needed"
+  ],
+  "includes": [
+    "Authored simulation and renderer source",
+    "Recorded experiment data and metrics"
+  ],
+  "excludes": [
+    "Narration",
+    "Brand assets",
+    "Image generation assets",
+    "Credentials"
+  ]
+}
