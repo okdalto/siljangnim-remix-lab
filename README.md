@@ -46,3 +46,12 @@ The models are deliberately simplified. See each project's documented assumption
 Project-authored source code is licensed under GPL-3.0-or-later; see [LICENSE](LICENSE). Third-party libraries and input assets retain their own terms; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) and project-specific notices. Generated input imagery is identified as such. The commercial narration service, credentials, browser profiles and video-production caches are not part of this repository.
 
 Create with words and remix freely. Your creative coding studio, **siljangnim**.
+
+## Verification
+
+```sh
+python scripts/check_environment.py
+python scripts/verify_all.py
+```
+
+The second command reruns all nine experiments, renders their outputs and fully decodes every generated MP4. It can take several minutes and writes `verification-report.json`. The recorded report was produced from a fresh HTTPS clone on 2026-10-15, using the pinned requirements on macOS/Python3.12. The music-type browser viewer was also opened, played and visually checked. This is not a claim of testing every OS.

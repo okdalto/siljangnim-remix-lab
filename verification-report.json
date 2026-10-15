@@ -1,0 +1,111 @@
+[
+  {
+    "project": "01-doodle-walker",
+    "commands": [
+      [
+        "search.py"
+      ],
+      [
+        "render_clean.py"
+      ]
+    ],
+    "decoded_videos": 2,
+    "status": "pass"
+  },
+  {
+    "project": "02-chair-search",
+    "commands": [
+      [
+        "run.py"
+      ],
+      [
+        "clean_results.py"
+      ]
+    ],
+    "decoded_videos": 3,
+    "status": "pass"
+  },
+  {
+    "project": "03-city-pinball",
+    "commands": [
+      [
+        "build.py"
+      ]
+    ],
+    "decoded_videos": 1,
+    "status": "pass"
+  },
+  {
+    "project": "04-domino-amplifier",
+    "commands": [
+      [
+        "search.py"
+      ],
+      [
+        "render.py"
+      ]
+    ],
+    "decoded_videos": 3,
+    "status": "pass"
+  },
+  {
+    "project": "05-voice-coaster",
+    "commands": [
+      [
+        "run.py"
+      ],
+      [
+        "render.py"
+      ]
+    ],
+    "decoded_videos": 2,
+    "status": "pass"
+  },
+  {
+    "project": "06-maze-growth",
+    "commands": [
+      [
+        "build.py"
+      ],
+      [
+        "render_exit.py"
+      ]
+    ],
+    "decoded_videos": 2,
+    "status": "pass"
+  },
+  {
+    "project": "07-object-tetris-photo",
+    "commands": [
+      [
+        "make.py"
+      ]
+    ],
+    "decoded_videos": 1,
+    "status": "pass"
+  },
+  {
+    "project": "08-bridge-repair",
+    "commands": [
+      [
+        "run.py"
+      ],
+      [
+        "clean_results.py"
+      ]
+    ],
+    "decoded_videos": 3,
+    "status": "pass"
+  },
+  {
+    "project": "09-music-type-collision",
+    "commands": [
+      [
+        "run.py",
+        "--render"
+      ]
+    ],
+    "decoded_videos": 2,
+    "status": "pass"
+  }
+]
