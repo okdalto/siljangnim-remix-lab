@@ -21,3 +21,7 @@ Episode07's assets.png is a generated photo-style sprite sheet, not a camera pho
 Episode05 includes numeric pitch measurements for reproduction, not commercial TTS voice recordings. Users can analyze their own audio. Episode09's input provenance and procedural music sources are documented in its folder. No George narration audio is distributed.
 
 Siljangnim: https://github.com/okdalto/siljangnim. These are the standalone experiments used to produce the Shorts, not a distribution of the entire Siljangnim application.
+
+## 10 · Voice to instrument
+
+The original voice-analysis pipeline used Praat/Parselmouth (GPL-3.0) and FEniCSx/DOLFINx (LGPL-3.0). These packages are not bundled. The portable implementation uses NumPy and SciPy (BSD). Authored spectral measurements, geometry search states and analytic synthesized tube audio are included under the repository license. The commercial Brian reference and George narration are not distributed. `samples/short-final-tube.wav` is the original FEM-synthesized tube output, not a voice-provider recording. Browser and Python fixed-pitch examples are computed from an analytic glottal pulse.

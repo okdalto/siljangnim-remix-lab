@@ -2,9 +2,11 @@
 
 **쇼츠에서 본 실험을 내려받아 직접 바꿔 보세요.**
 
-실장님 리믹스 쇼츠 01–09의 실행 코드와 입력 자료입니다. 영상의 설명용 애니메이션 대신, 실제 결과를 계산한 실험을 모았습니다. Python과 FFmpeg로 실행하며 API 키, 유료 음성 서비스, GPU는 필요하지 않습니다. 각 프로젝트의 README에서 실행 명령과 모델의 제한을 확인하세요.
+실장님 리믹스 쇼츠 예제 01–10의 실행 코드와 입력 자료입니다. 영상의 설명용 애니메이션 대신, 실제 결과를 계산한 실험을 모았습니다. Python과 FFmpeg로 실행하며 API 키, 유료 음성 서비스, GPU는 필요하지 않습니다. 각 프로젝트의 README에서 실행 명령과 모델의 제한을 확인하세요.
 
 [Download ZIP](https://github.com/okdalto/siljangnim-remix-lab/archive/refs/heads/main.zip) · [Siljangnim](https://github.com/okdalto/siljangnim)
+
+**10번 목소리 × 공명관은 실장님에서 바로 체험할 수 있습니다.** [project.md](projects/10-voice-instrument/project.md)를 실장님 에이전트에게 주고 프로젝트로 가져와 달라고 요청하세요. 뷰어를 클릭하면 소리가 켜지고, 후보 슬라이더로 관 모양과 소리를 비교할 수 있습니다. 이 체험에는 Python·FFmpeg가 필요 없습니다.
 
 ## 시작하기
 
@@ -30,6 +32,7 @@ python -m pip install -r requirements.txt
 | 07 | [책상 물건 × 테트리스](projects/07-object-tetris-photo) | 물건 순서와 배치 |
 | 08 | [다리 × 보강](projects/08-bridge-repair) | 부재, 하중, 보강 위치 |
 | 09 | [음악 × 손글씨](projects/09-music-type-collision) | 드럼 에너지와 스프링 |
+| 10 | [목소리 × 공명관](projects/10-voice-instrument) | 관 형상과 소리, 목표 스펙트럼에 맞춘 재설계 |
 
 각 폴더에서 README의 명령을 실행하면 결과 영상/수치가 생성됩니다. 물리 실험은 단순화된 모델이며, 실제 구조물 설계나 현실의 롤러코스터 안전성을 검증하지 않습니다. 플랫폼·라이브러리 차이로 부동소수점 결과가 조금 달라질 수 있습니다.
 
@@ -40,6 +43,8 @@ python -m pip install -r requirements.txt
 Download and remix the actual experiments featured in the Siljangnim Shorts series. Each numbered folder includes source code, inputs and run instructions. These are executable experiments, not narrated-video templates. Python 3.11/3.12 and FFmpeg are required; no API keys or paid services are needed. Start with the installation commands above, then follow the README in your chosen project.
 
 The models are deliberately simplified. See each project's documented assumptions and any differences between bundled sample inputs and the published video. Episode 05 now edits and remeasures audio to compare launch distances. Its bundled synthetic input differs from the local George sample used in the video.
+
+Project 10 also includes a self-contained Siljangnim document: import `projects/10-voice-instrument/project.md`, click the viewer to enable audio and change the candidate slider. Its optional Python reproduction needs only NumPy and SciPy.
 
 ## License and credits
 
@@ -52,6 +57,9 @@ Create with words and remix freely. Your creative coding studio, **siljangnim**.
 ```sh
 python scripts/check_environment.py
 python scripts/verify_all.py
+python projects/10-voice-instrument/run.py
 ```
 
-The second command reruns all nine experiments, renders their outputs and fully decodes every generated MP4. It can take several minutes and writes `verification-report.json`. The initial nine-project check used a fresh HTTPS clone on 2026-10-15. The current report also reruns the revised chair load and audio launch experiments locally using the pinned requirements on macOS/Python3.12. The music-type browser viewer was also opened, played and visually checked. This is not a claim of testing every OS.
+The second command reruns the first nine experiments, renders their outputs and fully decodes every generated MP4. It can take several minutes and writes `verification-report.json`. The initial nine-project check used a fresh HTTPS clone on 2026-10-15. The current report also reruns the revised chair load and audio launch experiments locally using the pinned requirements on macOS/Python3.12. The music-type browser viewer was also opened, played and visually checked. This is not a claim of testing every OS.
+
+Project 10 is verified separately by the third command: it regenerates initial/final/comparison WAVs and compares transfer matrices with an independent 1024-element FEM. See its [verification record](projects/10-voice-instrument/verification.json).

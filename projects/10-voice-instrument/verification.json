@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-16",
+  "platform": "macOS / Python 3.12 / Chrome",
+  "commands": [
+    "python run.py",
+    "python run.py --pitch 110",
+    "python run.py --fit",
+    "python build_scene.py"
+  ],
+  "fem_tmm_max_db_80_4000": 0.0015557661428628154,
+  "siljangnim": {
+    "import": "passed",
+    "viewport": "running, no scene errors",
+    "audio_context": "running after viewer click; Sound on displayed",
+    "candidate_switch": "14 to 1 to 14; geometry and length updated",
+    "mute": "passed"
+  },
+  "listening_claim": "Browser audio context and synthesis checked; not a claim of perceptual identity to Brian.",
+  "original_fem_sample_sha256": "65e542429fba23340ef79db90a946c069c2306135d362ac540b0aebda60e33b1"
+}
