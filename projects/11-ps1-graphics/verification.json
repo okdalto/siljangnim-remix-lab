@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-16",
+  "checks": {
+    "affine": "All three regenerated JSON scenes equal production originals",
+    "jitter": "All three regenerated JSON scenes equal production originals",
+    "depth": "All three regenerated JSON scenes equal production originals",
+    "pixels": "All three regenerated JSON scenes equal production originals",
+    "lab-teen": "Regenerated setup and render exactly equal approved production scene",
+    "lab-intro": "Regenerated setup and render exactly equal approved production scene",
+    "lab-portrait": "Regenerated setup and render exactly equal approved production scene"
+  },
+  "javascript": "All setup/render scripts compile as async ctx functions",
+  "model_import": "Three.js 0.185.0; 3462 expanded vertices; matches original production mesh",
+  "notes": [
+    "FBXLoader warns that more than four skin weights are truncated, as in original import.",
+    "Public packaging checked by regeneration and exact production script comparison; no new viewer visual review claimed.",
+    "External model used locally for verification, ignored by Git."
+  ]
+}

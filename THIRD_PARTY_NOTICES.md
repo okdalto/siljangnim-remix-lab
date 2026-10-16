@@ -25,3 +25,7 @@ Siljangnim: https://github.com/okdalto/siljangnim. These are the standalone expe
 ## 10 · Voice to instrument
 
 The original voice-analysis pipeline used Praat/Parselmouth (GPL-3.0) and FEniCSx/DOLFINx (LGPL-3.0). These packages are not bundled. The portable implementation uses NumPy and SciPy (BSD). Authored spectral measurements, geometry search states and analytic synthesized tube audio are included under the repository license. The commercial Brian reference and George narration are not distributed. `samples/short-final-tube.wav` is the original FEM-synthesized tube output, not a voice-provider recording. Browser and Python fixed-pitch examples are computed from an analytic glottal pulse.
+
+## 11 · PS1 graphics
+
+Four educational scenes and procedural laboratory textures are project-authored. The optional character is [PSX Style Teen by swickster](https://swickster.itch.io/psx-style-teen). The author states: “Free to use in commercial projects. Credit is appreciated!” Original FBX, diffuse texture, derived mesh buffers and character-embedded scenes are not distributed; users acquire the asset directly. The importer uses separately installed Three.js 0.185.0 (MIT). Commercial narration and production caches are excluded.

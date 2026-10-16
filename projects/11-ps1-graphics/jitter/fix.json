@@ -1,0 +1,108 @@
+{
+  "version": 2,
+  "backend": "webgl2",
+  "script": {
+    "setup": "const gl=ctx.gl;\nconst vs=`#version 300 es\nprecision highp float;\nlayout(location=0) in vec3 a_position;\nlayout(location=1) in vec3 a_normal;\nlayout(location=2) in vec2 a_uv;\nuniform mat4 u_mvp;\nuniform mat4 u_model;\nuniform float u_snap;\nuniform vec2 u_grid;\nuniform float u_gouraud;\nout vec2 v_uv;\nout vec3 v_affine;\nout vec3 v_normal;\nout float v_light;\nvoid main(){\n vec4 clip=u_mvp*vec4(a_position,1.);\n if(u_snap>0.5)clip.xy=floor((clip.xy/clip.w*.5+.5)*u_grid)/u_grid*2.*clip.w-clip.w;\n gl_Position=clip;\n v_uv=a_uv;v_affine=vec3(a_uv*clip.w,clip.w);\n v_normal=mat3(u_model)*a_normal;\n v_light=.22+.78*max(0.,dot(normalize(v_normal),normalize(vec3(-.6,.9,1.))));\n}`;\nconst fs=`#version 300 es\nprecision highp float;\nin vec2 v_uv;in vec3 v_affine;in vec3 v_normal;in float v_light;\nout vec4 outColor;\nuniform float u_affine;uniform float u_gouraud;uniform float u_quant;uniform float u_dither;uniform float u_texture;uniform vec3 u_color;uniform sampler2D u_tex;\nvoid main(){\n vec2 uv=mix(v_uv,v_affine.xy/v_affine.z,u_affine);\n vec3 c=u_color;\n if(u_texture>.5)c*=texture(u_tex,uv).rgb;\n float light=mix(.22+.78*max(0.,dot(normalize(v_normal),normalize(vec3(-.6,.9,1.)))),v_light,u_gouraud);\n c*=light;\n if(u_quant>.5){\n int x=int(gl_FragCoord.x)%4,y=int(gl_FragCoord.y)%4;\n float d[16]=float[16](-4.,0.,-3.,1.,2.,-2.,3.,-1.,-3.,1.,-4.,0.,3.,-1.,2.,-2.);\n c=floor(clamp(c*255.+d[y*4+x]*u_dither,0.,255.)/8.)/31.;\n }\n outColor=vec4(c,1.);\n}`;\nctx.state.p=ctx.utils.createProgram(vs,fs);\nctx.state.camera=ctx.utils.createOrbitCamera({distance:5,theta:0,phi:1.1,target:[0,0,0],fov:46});\nfunction grid(n){let p=[],normal=[],uv=[],ind=[];for(let j=0;j<=n;j++)for(let i=0;i<=n;i++){p.push((i/n-.5)*4,0,(j/n-.5)*4);normal.push(0,1,0);uv.push(i/n,j/n)}for(let j=0;j<n;j++)for(let i=0;i<n;i++){const a=j*(n+1)+i;ind.push(a,a+1,a+n+1,a+1,a+n+2,a+n+1)}return ctx.utils.createMesh({positions:p,normals:normal,uvs:uv,indices:ind})}\nctx.state.planes=[grid(1),grid(12)];\nctx.state.box=ctx.utils.createMesh(ctx.utils.geometry.box());\nctx.state.spheres=[ctx.utils.createMesh(ctx.utils.geometry.sphere(8)),ctx.utils.createMesh(ctx.utils.geometry.sphere(48))];\nctx.state.triangles=[[-1.5,-1,.9,1.2,-1,-.9,-.4,1.5,0],[-1.2,1,-.7,1.5,1,.7,.4,-1.5,0]].map(positions=>({positions,mesh:ctx.utils.createMesh({positions,normals:[0,0,1,0,0,1,0,0,1],uvs:[0,0,1,0,.5,1]})}));\nconst c=document.createElement('canvas');c.width=c.height=64;const g=c.getContext('2d');for(let y=0;y<8;y++)for(let x=0;x<8;x++){g.fillStyle=(x+y)%2?'#447d86':'#d8e5e7';g.fillRect(x*8,y*8,8,8)}\nconst texture=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,texture);gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,c);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.NEAREST);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.NEAREST);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);ctx.state.texture=texture;\nctx.state.target=ctx.utils.createPingPong(320,240,{depth:true,filter:gl.NEAREST});\nctx.state.blit=ctx.utils.createProgram(ctx.utils.FULLSCREEN_VERTEX_SHADER,`#version 300 es\\nprecision highp float;in vec2 v_uv;out vec4 outColor;uniform sampler2D u_image;void main(){outColor=texture(u_image,v_uv);}`);\n",
+    "render": "const gl=ctx.gl,s=ctx.state,m=ctx.utils.mat4;\nconst topic=ctx.uniforms.u_topic,variant=ctx.uniforms.u_variant;\nconst t=ctx.time;const [w,h]=ctx.resolution;const areaH=Math.floor(Math.min(h*.47,w*.85));const areaY=Math.floor(h*.41);\nconst pixelated=topic===3&&variant===2&&t>ctx.uniforms.u_lowtime;\ngl.clearColor(.03,.043,.039,1);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);\nif(pixelated){gl.bindFramebuffer(gl.FRAMEBUFFER,s.target.read().framebuffer);gl.viewport(0,0,320,240);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT)}else gl.viewport(0,areaY,w,areaH);\nconst aspect=w/areaH;\ns.camera.update(ctx.mouse,ctx.mousePrev,ctx.mouseDown,ctx.keys,ctx.dt);\nconst nearPlane=topic===2&&variant===2?.1+4.7*Math.min(1,Math.max(0,(t-ctx.uniforms.u_droptime)/.5)):.1;\nconst projection=m.perspective(topic===0?50:46,aspect,nearPlane,100);\nconst view=topic===0?m.lookAt([Math.sin(t*1.4)*1.1,2.8,4.8],[0,0,0],[0,1,0]):m.lookAt([topic===1?Math.sin(t*.6)*.7:0,0,5],[0,0,0],[0,1,0]);\nlet model=topic===0?m.fromYRotation(Math.sin(t*1.15)*.38):m.multiply(m.fromYRotation(topic===1?.35:Math.sin(t*1.4-.8)*.65),m.fromXRotation(topic===2?0:.25));\nif(topic===1)model=m.multiply(model,m.fromScaling(1.55,1.55,1.55));\nif(topic===3)model=m.multiply(model,m.fromScaling(3.4,3.4,3.4));\n// Orbit controls replace the cinematic camera when the viewer is being dragged.\nconst vp=m.multiply(projection,ctx.mouseDown?s.camera.getViewMatrix():view);\ngl.useProgram(s.p);ctx.utils.setUniforms(s.p,{u_mvp:m.multiply(vp,model),u_model:model,u_snap:topic===1&&variant===1?1:0,u_grid:[96,72],u_affine:topic===0&&variant>0?1:0,u_gouraud:topic===3&&variant>0?1:0,u_quant:topic===3&&variant>0&&t>ctx.uniforms.u_quanttime?1:0,u_dither:topic===3&&variant>0&&t>ctx.uniforms.u_dithertime?1:0,u_texture:topic===0||topic===3&&variant===2?1:0,u_color:[.8,.95,.97]});ctx.utils.bindTexture(s.p,'u_tex',s.texture,0);\ngl.enable(gl.DEPTH_TEST);gl.disable(gl.CULL_FACE);\nif(topic===0)s.planes[variant===2?1:0].draw();\nif(topic===1){ctx.utils.setUniforms(s.p,{u_color:[.47,.69,.76]});s.box.draw()}\nif(topic===2){\n let tris=s.triangles.map((tr,i)=>({tr,i,depth:m.transformPoint(model,[0,1,2].map(j=>(tr.positions[j]+tr.positions[j+3]+tr.positions[j+6])/3))[2]}));\n if(variant===1){gl.disable(gl.DEPTH_TEST);tris.sort((a,b)=>a.depth-b.depth)}\n for(const {tr,i} of tris){\n  if(variant===2&&t<ctx.uniforms.u_cliptime&&tr.positions.some((_,j)=>j%3===0&&m.transformPoint(m.multiply(view,model),tr.positions.slice(j,j+3))[2]>-nearPlane))continue;\n  ctx.utils.setUniforms(s.p,{u_color:i===0?[.35,.75,.83]:[.82,.36,.43]});tr.mesh.draw();\n }\n}\nif(topic===3){ctx.utils.setUniforms(s.p,{u_color:[.65,.76,.9]});s.spheres[variant===0?1:0].draw()}\nif(pixelated){gl.bindFramebuffer(gl.FRAMEBUFFER,null);gl.viewport(0,areaY,w,areaH);gl.disable(gl.DEPTH_TEST);gl.useProgram(s.blit);ctx.utils.bindTexture(s.blit,'u_image',s.target.read().texture,0);ctx.utils.drawFullscreen(s.blit)}\ngl.viewport(0,0,w,h);ctx.publish('Demonstration',['Affine UV','Integer vertex coordinates (magnified)','Depth sorting / simplified clipping','Geometry, colour and sampling'][topic]);\n",
+    "cleanup": ""
+  },
+  "inputs": [
+    "mouse"
+  ],
+  "timeline": {
+    "duration": 20,
+    "loop": true
+  },
+  "uniforms": {
+    "u_topic": {
+      "type": "int",
+      "value": 1,
+      "min": 0,
+      "max": 3,
+      "step": 1,
+      "label": "Topic",
+      "widget": "select",
+      "options": [
+        {
+          "label": "Affine texture",
+          "value": 0
+        },
+        {
+          "label": "Vertex jitter",
+          "value": 1
+        },
+        {
+          "label": "Depth / clipping",
+          "value": 2
+        },
+        {
+          "label": "Pixels / colour",
+          "value": 3
+        }
+      ]
+    },
+    "u_variant": {
+      "type": "int",
+      "value": 2,
+      "min": 0,
+      "max": 2,
+      "step": 1,
+      "label": "Comparison",
+      "widget": "select",
+      "options": [
+        {
+          "label": "Modern reference",
+          "value": 0
+        },
+        {
+          "label": "PS1-style constraint",
+          "value": 1
+        },
+        {
+          "label": "Mitigation / next constraint",
+          "value": 2
+        }
+      ]
+    },
+    "u_droptime": {
+      "type": "float",
+      "value": 2.5,
+      "min": 0,
+      "max": 20,
+      "step": 0.01,
+      "label": "droptime"
+    },
+    "u_lowtime": {
+      "type": "float",
+      "value": 4,
+      "min": 0,
+      "max": 20,
+      "step": 0.01,
+      "label": "lowtime"
+    },
+    "u_quanttime": {
+      "type": "float",
+      "value": 3,
+      "min": 0,
+      "max": 20,
+      "step": 0.01,
+      "label": "quanttime"
+    },
+    "u_dithertime": {
+      "type": "float",
+      "value": 4.5,
+      "min": 0,
+      "max": 20,
+      "step": 0.01,
+      "label": "dithertime"
+    },
+    "u_cliptime": {
+      "type": "float",
+      "value": 4,
+      "min": 0,
+      "max": 20,
+      "step": 0.01,
+      "label": "cliptime"
+    }
+  }
+}

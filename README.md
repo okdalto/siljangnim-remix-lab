@@ -2,11 +2,13 @@
 
 **쇼츠에서 본 실험을 내려받아 직접 바꿔 보세요.**
 
-실장님 리믹스 쇼츠 예제 01–10의 실행 코드와 입력 자료입니다. 영상의 설명용 애니메이션 대신, 실제 결과를 계산한 실험을 모았습니다. Python과 FFmpeg로 실행하며 API 키, 유료 음성 서비스, GPU는 필요하지 않습니다. 각 프로젝트의 README에서 실행 명령과 모델의 제한을 확인하세요.
+실장님 리믹스 쇼츠 예제 01–10과 PS1 그래픽스 시리즈(11)의 실행 코드와 입력 자료입니다. 영상의 설명용 애니메이션 대신, 실제 결과를 계산한 실험을 모았습니다. Python과 FFmpeg로 실행하며 API 키, 유료 음성 서비스, GPU는 필요하지 않습니다. 각 프로젝트의 README에서 실행 명령과 모델의 제한을 확인하세요.
 
 [Download ZIP](https://github.com/okdalto/siljangnim-remix-lab/archive/refs/heads/main.zip) · [Siljangnim](https://github.com/okdalto/siljangnim)
 
 **10번 목소리 × 공명관은 실장님에서 바로 체험할 수 있습니다.** [project.md](projects/10-voice-instrument/project.md)를 실장님 에이전트에게 주고 프로젝트로 가져와 달라고 요청하세요. 뷰어를 클릭하면 소리가 켜지고, 후보 슬라이더로 관 모양과 소리를 비교할 수 있습니다. 이 체험에는 Python·FFmpeg가 필요 없습니다.
+
+**11번 PS1 그래픽스**의 네 `project.md`도 실장님에서 바로 실행됩니다. Python·FFmpeg·외부 에셋이 필요 없습니다. 공통 연구소 복도에 영상의 캐릭터를 연결하는 방법은 [프로젝트 README](projects/11-ps1-graphics/README.md)에 있습니다.
 
 ## 시작하기
 
@@ -33,6 +35,7 @@ python -m pip install -r requirements.txt
 | 08 | [다리 × 보강](projects/08-bridge-repair) | 부재, 하중, 보강 위치 |
 | 09 | [음악 × 손글씨](projects/09-music-type-collision) | 드럼 에너지와 스프링 |
 | 10 | [목소리 × 공명관](projects/10-voice-instrument) | 관 형상과 소리, 목표 스펙트럼에 맞춘 재설계 |
+| 11 | [PS1 그래픽스 네 편](projects/11-ps1-graphics) | 바닥 출렁임, 모서리 떨림, 깊이 정렬, 거친 질감 + 연구소 복도 |
 
 각 폴더에서 README의 명령을 실행하면 결과 영상/수치가 생성됩니다. 물리 실험은 단순화된 모델이며, 실제 구조물 설계나 현실의 롤러코스터 안전성을 검증하지 않습니다. 플랫폼·라이브러리 차이로 부동소수점 결과가 조금 달라질 수 있습니다.
 
