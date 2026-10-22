@@ -1,0 +1,7 @@
+import fs from 'node:fs';
+const read=p=>fs.readFileSync(new URL(p,import.meta.url),'utf8');
+const inline=p=>read(p).replace(/^import .*;\n/gm,'').replace(/^export /gm,'');
+const uniform=(value,min,max,step,label,type='float')=>({type,value,min,max,step,label});
+const scene={version:2,backend:'webgl2',inputs:['mouse'],script:{setup:[inline('vendor/simplex-noise.mjs'),inline('core.mjs'),inline('simulation.mjs'),read('setup.js')].join('\n'),render:read('render.js'),cleanup:''},uniforms:{u_depth:uniform(9,2,9,1,'Depth','int'),u_speed:uniform(1,0,2,.05,'Noise speed'),u_damping:uniform(1,.7,2,.05,'Damping'),u_seed:uniform(117,1,999,1,'Seed','int'),u_style:{...uniform(0,0,1,1,'Style','int'),widget:'select',options:[{label:'Blocks',value:0},{label:'Plates',value:1}]},u_all:{type:'bool',value:false,label:'Show every cell'},u_exact:{type:'bool',value:false,label:'Exact median boundaries'}}};
+fs.writeFileSync(new URL('scene.json',import.meta.url),JSON.stringify(scene,null,2)+'\n');
+fs.writeFileSync(new URL('project.md',import.meta.url),'---\ntitle: KD-tree × Simplex noise\nsiljangnim: 2\nbackend: webgl2\nassets: []\n---\n\n# KD-tree × Simplex noise\n\n1024 moving points, true x/y/z median partitions. All code embedded; no downloads or API keys. Spring-smoothed display boundaries lag exact medians; use Exact median boundaries to compare. See README.md for sources and four browser studies.\n\n## Scene\n\n```json\n'+JSON.stringify(scene,null,2)+'\n```\n');

@@ -29,3 +29,9 @@ The original voice-analysis pipeline used Praat/Parselmouth (GPL-3.0) and FEniCS
 ## 11 · PS1 graphics
 
 Four educational scenes and procedural laboratory textures are project-authored. The optional character is [PSX Style Teen by swickster](https://swickster.itch.io/psx-style-teen). The author states: “Free to use in commercial projects. Credit is appreciated!” Original FBX, diffuse texture, derived mesh buffers and character-embedded scenes are not distributed; users acquire the asset directly. The importer uses separately installed Three.js 0.185.0 (MIT). Commercial narration and production caches are excluded.
+
+## 12 · KD-tree × Simplex noise
+
+- simplex-noise.js 4.0.3 by Jonas Wagner, MIT: https://github.com/jwagner/simplex-noise.js . Unmodified source and license in projects/12-kdtree-noise-space/vendor/ and browser/vendor/. The generated project.md/scene.json inline this implementation with its notice.
+- Three.js r170, MIT: https://github.com/mrdoob/three.js/tree/r170 . Used only by the browser studies; license in browser/vendor/THREE-LICENSE.txt.
+- KD-tree, simulation and Siljangnim renderer are project-authored GPL-3.0-or-later code. No narration, credentials or production media included.
