@@ -1,0 +1,32 @@
+{
+  "nearestQueries": 1800,
+  "animatedPartitions": 90,
+  "cubeVolume": 8,
+  "wallVolume": 5.76,
+  "wallFrames": 540,
+  "walls": {
+    "uniform": {
+      "impact": 0.6124999999999985,
+      "maxCenterHeight": 3.001904279950022,
+      "finalMaxSpeed": 0
+    },
+    "cluster": {
+      "impact": 0.6124999999999985,
+      "maxCenterHeight": 2.921003240405559,
+      "finalMaxSpeed": 0
+    }
+  },
+  "balletFrames": 193,
+  "visual_review": {
+    "date": "2026-10-23",
+    "host": "macOS Siljangnim WebGL2",
+    "checked": [
+      "2D Voronoi and Delaunay",
+      "Ballet silhouette-clipped mesh",
+      "3D Voronoi cells",
+      "Live wall collision"
+    ],
+    "runtime_errors": [],
+    "limitation": "Wall physics may run slower than wall-clock time on lower-FPS hardware."
+  }
+}

@@ -35,3 +35,10 @@ Four educational scenes and procedural laboratory textures are project-authored.
 - simplex-noise.js 4.0.3 by Jonas Wagner, MIT: https://github.com/jwagner/simplex-noise.js . Unmodified source and license in projects/12-kdtree-noise-space/vendor/ and browser/vendor/. The generated project.md/scene.json inline this implementation with its notice.
 - Three.js r170, MIT: https://github.com/mrdoob/three.js/tree/r170 . Used only by the browser studies; license in browser/vendor/THREE-LICENSE.txt.
 - KD-tree, simulation and Siljangnim renderer are project-authored GPL-3.0-or-later code. No narration, credentials or production media included.
+
+## 13 · Voronoi and Delaunay
+
+- d3-delaunay 6.0.4 (Observable/Mapbox), ISC; its Delaunator ISC and robust-predicates Unlicense notices are in projects/13-voronoi-delaunay/vendor/.
+- cannon-es 0.20.0, MIT; original CommonJS distribution and license in vendor/. The scene build replaces the Node perf_hooks reference with browser performance.
+- SciPy/NumPy (BSD-3-Clause), OpenCV-Python (Apache-2.0), optional dependencies installed separately.
+- Ballet points and silhouette derive from Comfy/Seedance-generated footage. No source film, commercial narration, keys or service request metadata is included. Authored geometry/physics source uses the repository GPL-3.0-or-later license; third-party licenses remain intact.
