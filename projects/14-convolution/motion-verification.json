@@ -1,0 +1,9 @@
+{
+  "frames": 9019,
+  "sample_rate": 240,
+  "all_values_finite": true,
+  "reference_samples": 101,
+  "max_original_motion_error": 0,
+  "runtime": "Siljangnim WebGL2, live SDF raymarch; CPU motions sampled from original Python",
+  "visual_review": "Siljangnim WebGL2: photo/filter entrance, RGB operation at 11.6s matched to Python capture; merged output at 13.1s; fixed-geometry sharpen result. All without runtime errors."
+}
