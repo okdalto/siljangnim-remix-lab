@@ -42,3 +42,8 @@ Four educational scenes and procedural laboratory textures are project-authored.
 - cannon-es 0.20.0, MIT; original CommonJS distribution and license in vendor/. The scene build replaces the Node perf_hooks reference with browser performance.
 - SciPy/NumPy (BSD-3-Clause), OpenCV-Python (Apache-2.0), optional dependencies installed separately.
 - Ballet points and silhouette derive from Comfy/Seedance-generated footage. No source film, commercial narration, keys or service request metadata is included. Authored geometry/physics source uses the repository GPL-3.0-or-later license; third-party licenses remain intact.
+
+
+## 14 · Convolution
+
+`projects/14-convolution/original/assets/dog.jpg`: Golden Retriever Hund Dog.JPG by Kintaiyo, https://commons.wikimedia.org/wiki/File:Golden_Retriever_Hund_Dog.JPG — CC BY 3.0 https://creativecommons.org/licenses/by/3.0/. Included photo and derived RGB/filter arrays retain this attribution. Changes: crop, resize, RGB separation, image filters. Original code and live study: repository GPL-3.0-or-later. Optional Python packages retain their own licenses; see project README.

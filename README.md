@@ -2,7 +2,7 @@
 
 **쇼츠에서 본 실험을 내려받아 직접 바꿔 보세요.**
 
-실장님 리믹스 쇼츠 예제 01–10, PS1 그래픽스 시리즈(11), KD-tree × Simplex noise(12), 보로노이와 들로네(13)의 실행 코드와 입력 자료입니다. 영상의 설명용 애니메이션 대신, 실제 결과를 계산한 실험을 모았습니다. Python과 FFmpeg로 실행하며 API 키, 유료 음성 서비스, GPU는 필요하지 않습니다. 각 프로젝트의 README에서 실행 명령과 모델의 제한을 확인하세요.
+실장님 리믹스 쇼츠 예제 01–10, PS1 그래픽스 시리즈(11), KD-tree × Simplex noise(12), 보로노이와 들로네(13), 컨볼루션(14)의 실행 코드와 입력 자료입니다. 영상의 설명용 애니메이션 대신, 실제 결과를 계산한 실험을 모았습니다. Python과 FFmpeg로 실행하며 API 키, 유료 음성 서비스, GPU는 필요하지 않습니다. 각 프로젝트의 README에서 실행 명령과 모델의 제한을 확인하세요.
 
 [Download ZIP](https://github.com/okdalto/siljangnim-remix-lab/archive/refs/heads/main.zip) · [Siljangnim](https://github.com/okdalto/siljangnim)
 
@@ -13,6 +13,8 @@
 **12번 KD-tree × Simplex noise**는 [project.md](projects/12-kdtree-noise-space/project.md)를 실장님에 가져오면 바로 실행됩니다. 실제 3D 분할, Noise 운동, 관성과 감쇠를 조절할 수 있으며 별도 설치나 API 키는 필요 없습니다. [네 단계 브라우저 실험과 실행 안내](projects/12-kdtree-noise-space)도 포함합니다.
 
 **13번 보로노이와 들로네**는 [project.md](projects/13-voronoi-delaunay/project.md)를 실장님에 가져오면 바로 실행됩니다. 움직이는 2D 패턴, 발레 삼각분할, 3D 보로노이, 실시간 벽 물리 실험을 선택할 수 있습니다. API 키나 추가 설치가 필요 없습니다. [실행 안내와 소스](projects/13-voronoi-delaunay)를 참고하세요.
+
+**14번 컨볼루션**은 [project.md](projects/14-convolution/project.md)로 바로 실행합니다. 다섯 필터와 3×3 연산을 직접 조작할 수 있으며, 쇼츠의 원본 3D Python 애니메이션도 [함께 제공](projects/14-convolution)합니다.
 
 ## 시작하기
 
@@ -42,6 +44,8 @@ python -m pip install -r requirements.txt
 | 11 | [PS1 그래픽스 네 편](projects/11-ps1-graphics) | 바닥 출렁임, 모서리 떨림, 깊이 정렬, 거친 질감 + 연구소 복도 |
 | 12 | [KD-tree × Simplex noise](projects/12-kdtree-noise-space) | 진짜 x/y/z 분할, 움직이는 점, 관성과 감쇠 |
 | 13 | [보로노이와 들로네](projects/13-voronoi-delaunay) | 점·영역·삼각형, 발레 추적점, 3D 조각과 벽 물리 |
+
+| 14 | [컨볼루션](projects/14-convolution) | 이미지 필터 비교, 픽셀별 연산, 원본 3D 애니메이션 |
 
 각 폴더에서 README의 명령을 실행하면 결과 영상/수치가 생성됩니다. 물리 실험은 단순화된 모델이며, 실제 구조물 설계나 현실의 롤러코스터 안전성을 검증하지 않습니다. 플랫폼·라이브러리 차이로 부동소수점 결과가 조금 달라질 수 있습니다.
 

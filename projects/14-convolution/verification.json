@@ -1,0 +1,10 @@
+{
+  "numeric_values_compared": 13500,
+  "max_error": 6.171844288416217e-08,
+  "constant_and_step_checks": true,
+  "scene_syntax": true,
+  "original_self_test": "passed",
+  "siljangnim_scene_write": "running without errors",
+  "viewport_review": "Upright dog image, Sobel output, neighbourhood and coefficients visible at 2120x1568; no runtime errors",
+  "import_note": "If project import leaves the previous scene visible, apply bundled scene.json via scene_write."
+}
